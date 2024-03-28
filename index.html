@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Roller</title>
+    <style>
+      body {
+        background-color: #faaca8;
+        background-image: linear-gradient(19deg, #ecc2c2 0%, #af9ceb 100%);
+        height: 100vh;
+      }
+
+      .dice-heading {
+        text-align: center;
+        font-size: 40px;
+      }
+
+      .dice-img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: 20px auto;
+      }
+      
+      .btn-dice {
+        width: 200px;
+        display: block;
+        margin: 20px auto;
+        font-size: 30px;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 0.2px #7c5edf;
+        background-image: linear-gradient(19deg, #e73838 0%, #7c5edf 100%);
+        color: white;
+        cursor: pointer;
+      }
+     
+      @media screen and (max-width: 600px) {
+        .dice-heading {
+          font-size: 30px;
+        }
+        .dice-img {
+          width: 200px;
+        }
+        .btn-dice {
+          width: 150px;
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="dice-heading">Dice Roller</h1>
+    <img src="./img/dice.png" alt="default" class="dice-img" id="dice-img" />
+    <button class="btn-dice" onclick="roll()">Roll Dice</button>
+    <script>
+      function roll() {
+        const min = 1;
+        const max = 6;
+        const randomenumber = Math.round(Math.random() * (max - min)) + min;
+        const imgElement = document.getElementById("dice-img");
+        switch (randomenumber) {
+          case 1:
+            imgElement.src = "./img/one.png";
+            break;
+
+          case 2:
+            imgElement.src = "./img/two.png";
+            break;
+
+          case 3:
+            imgElement.src = "./img/three.png";
+            break;
+
+          case 4:
+            imgElement.src = "./img/four.png";
+            break;
+
+          case 5:
+            imgElement.src = "./img/five.png";
+            break;
+
+          case 6:
+            imgElement.src = "./img/six.png";
+            break;
+
+          default:
+            imgElement.src = "./img/dice.png";
+        }
+      }
+    </script>
+  </body>
+</html>
